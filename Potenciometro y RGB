@@ -1,0 +1,30 @@
+int C1=3;
+int C2=5;
+int C3=6;
+int POT1=0; int POT2=1; int POT3=3;
+int a;
+int b;
+int c;
+int d;
+int e;
+int f;
+void setup() {
+pinMode(C1,OUTPUT); pinMode(C2,OUTPUT); pinMode(C3,OUTPUT);
+
+Serial.begin(9600);
+}
+void loop() {
+  delay(100);
+  
+digitalWrite(C1,LOW); digitalWrite(C2,LOW); digitalWrite(C3,LOW); 
+a=analogRead(POT1); b=analogRead(POT2); c=analogRead(POT3);
+
+d=map(a,0,1023,0,255); Serial.println(d);
+e=map(b,0,1023,0,255); Serial.println(e);
+f=map(c,0,1023,0,255); Serial.println(f);
+
+analogWrite(C1,d);
+analogWrite(C2,e);
+analogWrite(C3,f);
+
+}
